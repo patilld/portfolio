@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lalit D. Patil | Senior Java Developer</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        :root{
+            --primary:#2563eb;
+            --secondary:#1e40af;
+            --dark:#0f172a;
+            --light:#f8fafc;
+            --card:#ffffff;
+            --text:#334155;
+        }
+
+        .dark-mode{
+            --light:#0f172a;
+            --card:#1e293b;
+            --text:#f1f5f9;
+        }
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        html{
+            scroll-behavior:smooth;
+        }
+
+        body{
+            background:var(--light);
+            color:var(--text);
+            line-height:1.6;
+        }
+
+        .container{
+            width:90%;
+            max-width:1200px;
+            margin:auto;
+        }
+
+        header{
+            position:sticky;
+            top:0;
+            z-index:1000;
+            background:var(--dark);
+        }
+
+        nav{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:18px 0;
+        }
+
+        .logo{
+            color:#fff;
+            font-size:1.4rem;
+            font-weight:700;
+        }
+
+        nav ul{
+            list-style:none;
+            display:flex;
+            gap:25px;
+        }
+
+        nav ul li a{
+            color:#fff;
+            text-decoration:none;
+            transition:0.3s;
+        }
+
+        nav ul li a:hover{
+            color:#60a5fa;
+        }
+
+        .theme-btn{
+            border:none;
+            padding:10px 16px;
+            border-radius:8px;
+            cursor:pointer;
+        }
+
+        .hero{
+            min-height:90vh;
+            background:linear-gradient(135deg,#1e3a8a,#2563eb);
+            color:white;
+            display:flex;
+            align-items:center;
+            text-align:center;
+        }
+
+        .hero-content{
+            width:100%;
+        }
+
+        .hero h1{
+            font-size:3rem;
+            margin-bottom:15px;
+        }
+
+        .hero h2{
+            font-weight:400;
+            margin-bottom:20px;
+        }
+
+        .hero p{
+            max-width:800px;
+            margin:0 auto 30px;
+        }
+
+        .btn{
+            display:inline-block;
+            text-decoration:none;
+            background:white;
+            color:#2563eb;
+            padding:14px 28px;
+            border-radius:8px;
+            font-weight:600;
+        }
+
+        section{
+            padding:80px 0;
+        }
+
+        .section-title{
+            text-align:center;
+            margin-bottom:50px;
+        }
+
+        .section-title h2{
+            color:var(--primary);
+            font-size:2rem;
+        }
+
+        .about{
+            text-align:center;
+            max-width:900px;
+            margin:auto;
+        }
+
+        .skills-grid,
+        .projects-grid,
+        .cert-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+            gap:25px;
+        }
+
+        .skill-card,
+        .project-card,
+        .timeline-item{
+            background:var(--card);
+            padding:25px;
+            border-radius:12px;
+            box-shadow:0 5px 15px rgba(0,0,0,.08);
+        }
+
+        .skill-card h3,
+        .project-card h3{
+            color:var(--primary);
+            margin-bottom:12px;
+        }
+
+        .project-card{
+            transition:.3s;
+        }
+
+        .project-card:hover{
+            transform:translateY(-6px);
+        }
+
+        .tags{
+            display:flex;
+            flex-wrap:wrap;
+            gap:10px;
+            margin-top:15px;
+        }
+
+        .tag{
+            background:#dbeafe;
+            color:#1e40af;
+            padding:6px 12px;
+            border-radius:20px;
+            font-size:0.8rem;
+        }
+
+        .skill{
+            margin-bottom:20px;
+        }
+
+        .skill h4{
+            margin-bottom:8px;
+        }
+
+        .bar{
+            background:#d1d5db;
+            height:12px;
+            border-radius:20px;
+        }
+
+        .bar span{
+            display:block;
+            height:12px;
+            background:var(--primary);
+            border-radius:20px;
+        }
+
+        .timeline-item{
+            border-left:5px solid var(--primary);
+        }
+
+        .experience-list{
+            padding-left:20px;
+            margin-top:15px;
+        }
+
+        .experience-list li{
+            margin-bottom:10px;
+        }
+
+        .pipeline{
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            gap:10px;
+        }
+
+        .step{
+            width:300px;
+            background:var(--card);
+            padding:15px;
+            text-align:center;
+            font-weight:600;
+            border-radius:10px;
+            box-shadow:0 3px 10px rgba(0,0,0,.08);
+        }
+
+        .arrow{
+            font-size:24px;
+            color:var(--primary);
+            font-weight:bold;
+        }
+
+        .contact{
+            text-align:center;
+        }
+
+        .contact-links{
+            margin-top:25px;
+        }
+
+        .contact-links a{
+            display:inline-block;
+            margin:10px;
+            text-decoration:none;
+            color:var(--primary);
+            font-weight:600;
+        }
+
+        .resume-btn{
+            margin-top:25px;
+        }
+
+        footer{
+            background:var(--dark);
+            color:white;
+            text-align:center;
+            padding:20px;
+        }
+
+        @media(max-width:768px){
+
+            nav{
+                flex-direction:column;
+                gap:15px;
+            }
+
+            nav ul{
+                flex-wrap:wrap;
+                justify-content:center;
+            }
+
+            .hero h1{
+                font-size:2rem;
+            }
+
+            .hero h2{
+                font-size:1.1rem;
+            }
+
+            .step{
+                width:100%;
+            }
+
+            .btn{
+                display:block;
+                width:220px;
+                margin:auto;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+
+        <nav>
+
+            <div class="logo">
+                Lalit D. Patil
+            </div>
+
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <button class="theme-btn" onclick="toggleTheme()">
+                🌙 Dark Mode
+            </button>
+
+        </nav>
+
+    </div>
+</header>
+
+<section class="hero">
+
+    <div class="container hero-content">
+
+        <h1>Lalit D. Patil</h1>
+
+        <h2>Senior Java Developer | AWS | Docker | Kubernetes | Jenkins</h2>
+
+        <p>
+            Experienced Software Engineer specializing in Java, Spring Boot,
+            Microservices, AWS Cloud, Docker, Jenkins, Kubernetes, and DevOps
+            automation.
+        </p>
+
+        <a href="#projects" class="btn">
+            View Projects
+        </a>
+
+    </div>
+
+</section>
+
+<section id="about">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>About Me</h2>
+        </div>
+
+        <p class="about">
+            Senior Java Developer with expertise in Spring Boot, Microservices,
+            AWS, Docker, Kubernetes, Jenkins, and DevOps automation. Experienced in
+            building scalable enterprise applications and deploying cloud-native
+            workloads using modern DevOps practices.
+        </p>
+
+    </div>
+
+</section>
+
+<section id="skills">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Technical Skills</h2>
+        </div>
+
+        <div class="skills-grid">
+
+            <div class="skill-card">
+                <h3>Backend Development</h3>
+                <p>Java 8/11/17, Spring Boot, Hibernate, REST APIs, Microservices</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Cloud</h3>
+                <p>AWS EC2, EKS, ECR, IAM, VPC, S3</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>DevOps</h3>
+                <p>Docker, Kubernetes, Jenkins, Helm Charts</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Databases</h3>
+                <p>MySQL, PostgreSQL, Oracle</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Version Control</h3>
+                <p>Git, GitHub, Bitbucket</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Monitoring</h3>
+                <p>Prometheus, Grafana, ELK Stack</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section>
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Skill Levels</h2>
+        </div>
+
+        <div class="skill">
+            <h4>Java & Spring Boot</h4>
+            <div class="bar"><span style="width:95%"></span></div>
+        </div>
+
+        <div class="skill">
+            <h4>AWS</h4>
+            <div class="bar"><span style="width:85%"></span></div>
+        </div>
+
+        <div class="skill">
+            <h4>Docker</h4>
+            <div class="bar"><span style="width:85%"></span></div>
+        </div>
+
+        <div class="skill">
+            <h4>Kubernetes</h4>
+            <div class="bar"><span style="width:75%"></span></div>
+        </div>
+
+        <div class="skill">
+            <h4>Jenkins</h4>
+            <div class="bar"><span style="width:80%"></span></div>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="projects">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Projects</h2>
+        </div>
+
+        <div class="projects-grid">
+
+            <div class="project-card">
+                <h3>Spring Boot Microservices Platform</h3>
+                <p>
+                    Built enterprise-grade microservices using Spring Boot and Docker,
+                    deployed on Kubernetes running on AWS EKS.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">Java</span>
+                    <span class="tag">Spring Boot</span>
+                    <span class="tag">AWS</span>
+                    <span class="tag">Kubernetes</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>CI/CD Automation Pipeline</h3>
+                <p>
+                    Complete Jenkins pipeline integrating build, testing,
+                    Docker image creation, and Kubernetes deployment.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">Jenkins</span>
+                    <span class="tag">Docker</span>
+                    <span class="tag">CI/CD</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>Helm Deployment Framework</h3>
+                <p>
+                    Automated application deployments with Helm Charts,
+                    version control, rollback support, and Kubernetes releases.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">Helm</span>
+                    <span class="tag">Kubernetes</span>
+                    <span class="tag">DevOps</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="experience">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Professional Experience</h2>
+        </div>
+
+        <div class="timeline-item">
+
+            <h3>Senior Java Developer</h3>
+
+            <ul class="experience-list">
+                <li>Designed and developed enterprise applications using Java and Spring Boot.</li>
+                <li>Built scalable REST APIs and microservices architectures.</li>
+                <li>Managed AWS cloud infrastructure and deployments.</li>
+                <li>Containerized applications using Docker.</li>
+                <li>Deployed and managed workloads on Kubernetes.</li>
+                <li>Created Jenkins CI/CD pipelines.</li>
+                <li>Implemented Helm-based deployment strategies.</li>
+                <li>Monitored production systems and optimized performance.</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section>
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>DevOps Journey</h2>
+        </div>
+
+        <div class="pipeline">
+
+            <div class="step">Java Development</div>
+            <div class="arrow">↓</div>
+
+            <div class="step">Spring Boot</div>
+            <div class="arrow">↓</div>
+
+            <div class="step">Docker</div>
+            <div class="arrow">↓</div>
+
+            <div class="step">Jenkins</div>
+            <div class="arrow">↓</div>
+
+            <div class="step">AWS</div>
+            <div class="arrow">↓</div>
+
+            <div class="step">Kubernetes</div>
+            <div class="arrow">↓</div>
+
+            <div class="step">Helm</div>
+            <div class="arrow">↓</div>
+
+            <div class="step">Cloud Native DevOps</div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section>
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Enterprise Deployment Architecture</h2>
+        </div>
+
+        <div class="pipeline">
+
+            <div class="step">Developer</div>
+            <div class="arrow">↓</div>
+
+            <div class="step">GitHub</div>
+            <div class="arrow">↓</div>
+
+            <div class="step">Jenkins CI/CD</div>
+            <div class="arrow">↓</div>
+
+            <div class="step">Docker Build</div>
+            <div class="arrow">↓</div>
+
+            <div class="step">AWS ECR</div>
+            <div class="arrow">↓</div>
+
+            <div class="step">Amazon EKS</div>
+            <div class="arrow">↓</div>
+
+            <div class="step">NGINX Ingress Controller</div>
+            <div class="arrow">↓</div>
+
+            <div class="step">End Users</div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="contact">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Contact</h2>
+        </div>
+
+        <div class="contact">
+
+            <p>
+                Let's connect and discuss Java Development,
+                AWS Cloud, Kubernetes, and DevOps opportunities.
+            </p>
+
+            <div class="resume-btn">
+                <a href="resume.pdf" class="btn">
+                    📄 Download Resume
+                </a>
+            </div>
+
+            <div class="contact-links">
+                <a href="mailto:your-email@example.com">📧 Email</a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank">💼 LinkedIn</a>
+                <a href="https://github.com/yourgithub" target="_blank">💻 GitHub</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    <p>
+        © 2026 Lalit D. Patil | Senior Java Developer | AWS | Kubernetes | DevOps
+    </p>
+</footer>
+
+<script>
+    function toggleTheme() {
+        document.body.classList.toggle("dark-mode");
+    }
+</script>
+
+</body>
+</html>
