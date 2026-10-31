@@ -11,7 +11,7 @@ pipeline {
         stage("Code compilation") {
             steps {
                 echo "Code compilation started..."
-                sh './mvnw clean compile'
+                sh 'mvn clean compile'
                 echo "Code compilation completed."
             }
         }
